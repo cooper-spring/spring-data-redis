@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ public class Point implements Serializable {
 
     private Long amount;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime refreshTime;
 
     @Builder
