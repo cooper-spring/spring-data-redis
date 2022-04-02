@@ -22,8 +22,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+configurations {
+    all {
+        exclude  group: "org.springframework.boot", module : "spring-boot-starter-logging"
+    }
+}
+
 
 tasks.named('test') {
     useJUnitPlatform()
